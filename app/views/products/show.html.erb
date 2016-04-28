@@ -14,9 +14,9 @@
 
 <p>Reviews for <%= @product.name %></p>
 
-<% @product.reviews.each do |review| %>
-  <%= render partial: 'reviews/review', locals: { review: review } %>
-<% end %>
+<div id="review-list">
+  <%= render :partial => "reviews" %>
+</div>
 
 <% if current_user %>
   <%= render partial: 'reviews/form', locals: { product: @product, review: @review } %>
