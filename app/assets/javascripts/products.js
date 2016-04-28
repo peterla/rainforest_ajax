@@ -23,11 +23,7 @@ $(document).on('ready page:load', function() {
     event.preventDefault();
     var searchValue = $('#search').val();
 
-    $.get('/products?search=' + searchValue)
-      .success(function(response) {
-        console.log(response);
-        $('#products').html(response);
-      });
+    $.getScript('/products?search=' + searchValue);
 
     // Using .success instead of .done as .done will execute after success or failure, and will do so no matter if
     // there is a success or failure.
