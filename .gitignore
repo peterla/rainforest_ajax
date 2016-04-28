@@ -1,0 +1,4 @@
+app/views/products/_product.html.erb
+db/development.sqlite3
+log/development.log
+tmp/
