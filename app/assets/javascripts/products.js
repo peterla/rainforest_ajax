@@ -23,13 +23,11 @@ $(document).on('ready page:load', function() {
     event.preventDefault();
     var searchValue = $('#search').val();
 
-    $.ajax({
-      url: '/products?search=' + searchValue,
-      type: 'GET',
-      dataType: 'html'
-    }).success(function(response) {
-      $('#products').html(response);
-    });
+    $.get('/products?search=' + searchValue)
+      .success(function(response) {
+        console.log(response);
+        $('#products').html(response);
+      });
 
     // Using .success instead of .done as .done will execute after success or failure, and will do so no matter if
     // there is a success or failure.
