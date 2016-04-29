@@ -28,4 +28,12 @@ $(document).on('ready page:load', function() {
     // Using .success instead of .done as .done will execute after success or failure, and will do so no matter if
     // there is a success or failure.
   });
+
+  $(window).scroll(function() {
+    var url = $('.pagination span.next').children().attr('href');
+    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      $('.pagination').text("Fetching more products...");
+      return $.getScript(url);
+    }
+  });
 });
